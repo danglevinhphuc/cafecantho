@@ -1,0 +1,86 @@
+<h1 style="font-size: 50px;color: #FF9900;font-family: bold; " class="text-center">SỬA BÀI VIẾT</h1>
+<form action="/editss" method="POST"  enctype="multipart/form-data">
+  <div class="form-group">
+    <div class="form-group">
+    <label for="title" >Tên Quán</label><br>
+    <textarea name="tenQuan" id="tenQuan" rows="20"  style="" required>{{products.tenQuan}}</textarea>
+  </div>
+    <label for="title">Mô tả</label>
+    <textarea name="moTa" id="moTa" rows="20" cols="130" required>
+      {{products.moTa}}
+    </textarea>
+  </div>
+  <div class="form-group">
+    <label for="description">Địa điểm</label>
+    <textarea name="diaDiem" id="diaDiem" rows="20" cols="130" required>
+      {{products.diaDiem}}
+    </textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="price">Ngày tháng</label>
+    <!--<input type="date" class="form-control" name="ngayThang" id="price"> -->
+    <input type="date" value="{{products.ngayThang}}" name="ngayThang"  />
+  </div>
+  <div class="form-group">
+    <label for="title">Hình 1</label>
+    <input type="hidden" name="hinh_an_1" value="{{products.linkAnh1}}">
+    <input type="file" class="form-control" name="linkAnh1[]" id="ImagePath1">
+    <img src="/img/{{products.linkAnh1}}" id='output1' width='300px' name='img_thuoc' height='300px' alt='hình sản phẩm'>
+  </div>
+   <div class="form-group">
+    <label for="title">Hình 2</label>
+    <input type="hidden" name="hinh_an_2" value="{{products.linkAnh2}}">
+    <input type="file" class="form-control" name="linkAnh1[]" id="ImagePath2">
+    <img src="/img/{{products.linkAnh2}}"  id='output2'  width='300px' name='img_thuoc' height='300px' alt='hình sản phẩm'>
+  </div>
+   <div class="form-group">
+    <label for="title">Hình 3</label>
+    <input type="hidden" name="hinh_an_3" value="{{products.linkAnh3}}">
+    <input type="file" class="form-control" name="linkAnh1[]" id="ImagePath3">
+    <img src="/img/{{products.linkAnh3}}" id='output3' width='300px' name='img_thuoc' height='300px' alt='hình sản phẩm'>
+  </div>
+   <div class="form-group">
+    <label for="title">Hình 4</label>
+    <input type="hidden" name="hinh_an_4" value="{{products.linkAnh4}}">
+    <input type="file" class="form-control" name="linkAnh1[]" id="ImagePath4">
+    <img src="/img/{{products.linkAnh4}}" id='output4' width='300px' name='img_thuoc' height='300px' alt='hình sản phẩm'>
+  </div>
+   <div class="form-group">
+    <label for="title">Hình 5</label>
+    <input type="hidden" name="hinh_an_5" value="{{products.linkAnh5}}">
+    <input type="file" class="form-control" name="linkAnh1[]" id="ImagePath5">
+    <img src="/img/{{products.linkAnh5}}" id='output5' width='300px' name='img_thuoc' height='300px' alt='hình sản phẩm'>
+  </div>
+  <input type="hidden" name="id" value="{{products._id}}">
+  <button type="submit" class="btn btn-primary " style="width:100%">Edit</button>
+</form>
+
+<script type="text/javascript">
+    var openFile = function(event,name) {
+        var input = event.target;
+
+        var reader = new FileReader();
+        reader.onload = function(){
+            var dataURL = reader.result;
+            var output = document.getElementById(name);
+            output.src = dataURL;
+        };
+        reader.readAsDataURL(input.files[0]);
+    };
+    $("#ImagePath1").change(function(e){
+        openFile(event,'output1');
+    });
+    $("#ImagePath2").change(function(e){
+        openFile(event,'output2');
+    });
+    $("#ImagePath3").change(function(e){
+        openFile(event,'output3');
+    });
+    $("#ImagePath4").change(function(e){
+        openFile(event,'output4');
+    });
+    $("#ImagePath5").change(function(e){
+        openFile(event,'output5');
+    });
+</script>

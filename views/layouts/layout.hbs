@@ -1,0 +1,57 @@
+<!DOCTYPE dhtml>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{{title}}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'>	  
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/main.css">
+    <script type="text/javascript">
+     $(document).ready(function(){
+      $(".toc-ac").click(function(){
+        $('#container').animate({
+          'left': "-240px",
+          'display':'toggle',
+        },"slow");
+        $('#toc').animate({
+          'right': "0px",
+          'display':'toggle',
+        },"slow");
+        $(this).css("display","none");
+        $(".fa-times").show();
+      });
+      $(".fa-times").click(function(){
+        $('#container').animate({
+          'left': "0px",
+          'display':'toggle',
+        },"slow");
+        $('#toc').animate({
+          'right': "-240px",
+          'display':'toggle',
+        },"slow");
+        $(".toc-ac").css("display","block");
+        $(this).hide();
+      });
+  });
+      
+  </script>
+</head>
+<body>
+	
+	<header class="container">
+		{{> header}}
+	</header>
+	<main class="container">
+		{{{body}}}	
+	</main>
+	<footer>
+		{{> footer}}
+	</footer>
+	
+</body>
+</html>

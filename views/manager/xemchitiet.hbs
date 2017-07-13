@@ -1,0 +1,112 @@
+  <div id="container">
+        <section id="content">
+            {{#if hasError}}
+    <div class="alert alert-success" style="font-size: 20px">
+      {{# each messages}}
+      <p>{{this}}</p>
+      {{/each}}
+    </div>
+    {{/if}}
+
+<div id="pfd-work">
+    <div id="work-bio">
+        <header>
+            <div id="pfd">
+                <a href="index.html">
+                    <img src="../img/pyaari-logo.png" alt="Pyaari Website - For Website and Graphic Designers">
+                </a>
+            </div>
+            
+            <div id="preamble">
+                <h1>Pyaari</h1>
+                <h2>{{products.diaDiem}}</h2>
+                <p>{{products.moTa}}</p>
+                <p>{{products.price}} VNĐ</p>
+            </div>
+
+            
+            <ul id="links">
+                <li>
+                    <a href="/" id="home">Home</a>
+                </li>
+                <li>
+                    <a id="ilovethis"><span>77</span></a>
+                </li>
+            </ul>
+        </header>
+    </div>
+
+    <section id="work-visuals">
+    <!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Thêm vào giỏ hàng</button>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content" style="font-size: 20px">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Chọn số lượng</h4>
+      </div>
+      <form action="/shopcart" method="POST">
+      <div class="modal-body">
+        
+            <div class="form-group">
+    <input type="number" name="count"  style="width: 50% ;height: 5%; font-size: 20px;"> <span style="font-size: 20px"></span>
+  </div>
+        
+      </div>
+      <div class="modal-footer">
+        <input type="hidden" name="email" value="{{email}}">
+        <input type="hidden" name="name" value="{{products.tenQuan}}">
+        <input type="hidden" name="price" value="{{products.price}}">
+        <input type="hidden" name="id_sp" value="{{products._id}}">
+        <input type="submit" class="btn btn-info" name="" value="Mua">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+      </form>
+    </div>
+
+  </div>
+</div>
+        <ul>
+            <li data-visual="website-design-florentina-norfolk"><img src="/img/{{products.linkAnh1}}">
+        &nbsp;</li>
+            <li data-visual="florentina-logo-design"><img src="/img/{{products.linkAnh2}}">
+        &nbsp;</li>
+            <li data-visual="ipad-website-design-florentina-events"><img src="/img/{{products.linkAnh3}}">
+        &nbsp;</li>
+            <li data-visual="florentina-website-design-full-page"><img src="/img/{{products.linkAnh4}}">
+        &nbsp;</li>
+        <li data-visual="florentina-website-design-full-page"><img src="/img/{{products.linkAnh5}}">
+        &nbsp;</li>
+        </ul>
+
+    </section>
+    
+</div>
+
+</section>
+
+    </div><!-- container -->
+    
+      <nav id="toc">
+        <ul>
+        <li><i class="fa fa-times" aria-hidden="true" style="font-size: 50px; color: red;cursor: pointer;"></i></li>
+        <li><form action="/search/sanpham" method="post" style=" width: 100%">
+                <input type="text" class="form-control web-search-box" placeholder="search" name="keyword" value=''></div>
+                </form></li>
+            <li>
+                <a class="active" href="/"><a class="active" href="/"> <i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a></li>
+                 {{# if login}}
+                 <li><a href="/xemtatcasp"><i class="fa fa-eye" aria-hidden="true"></i> Xem tất cả bài viết</a></li>
+                 <li><a href="/xemgiohang"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Xem giỏ hàng</a></li>
+                 <li><a href="/user/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Đăng xuất</a></li>
+            {{ else }}
+              <li><a href="/user/signin"><i class="fa fa-user" aria-hidden="true"></i> Đăng nhập</a></li>
+          {{/if}}
+        </ul>
+             <a id="toc-actuator" class="toc-ac" style="opacity: 1;">Show Menu</a>
+  </nav>

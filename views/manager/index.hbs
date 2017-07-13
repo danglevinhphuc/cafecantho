@@ -1,0 +1,57 @@
+
+<div id="container" style="left: 0px;">
+  <section id="content">
+    {{#if hasError}}
+    <div class="alert alert-danger">
+      {{# each messages}}
+      <p>{{this}}</p>
+      {{/each}}
+    </div>
+    {{/if}}
+    <header>
+      <div id="pfd">
+        <a href="index.html">
+          <img src="/img/pyaari-logo.png" alt="Pyaari Website - For Website and Graphic Designers">
+        </a>
+      </div>
+      <div id="preamble" class="home">
+        <div class="preamble">
+          <h1 id="h1">
+            WEBSITE QUÁN CAFE ĐẸP VÀ NGON Ở CẦN THƠ</h1>
+
+          </div>
+        </header>
+        <div id="our-work">
+          <ul>
+            {{#each products}}
+            <li ><a href="/xemchitiet/{{this._id}}"><img src="/img/{{this.linkAnh1}}" alt="Pyaari"  ><div class="overlay" ><summary><h2>{{this.tenQuan}}</h2><h3>{{this.diaDiem}}</h3></summary><div class="loves"><span>77</span></div></div></a></li>
+            {{/each}}
+          </ul>
+        </div>
+      </section>
+
+
+    </div><!-- container -->
+    
+    
+    <nav id="toc">
+      <ul>
+      <li><i class="fa fa-times" aria-hidden="true" style="font-size: 50px; color: red;cursor: pointer;"></i></li>
+        <li><form action="/search/sanpham" method="post" style=" width: 100%">
+          <input type="text" class="form-control web-search-box" placeholder="search" name="keyword" value=''></div>
+        </form></li>
+        <li>  <a class="active" href="/"> <i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a></li>
+        {{# if login}}
+        <li><a href="/xemtatcasp"><i class="fa fa-eye" aria-hidden="true"></i> Xem tất cả bài viết</a></li>
+        <li><a href="/xemgiohang"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Xem giỏ hàng</a></li>
+        <li><a href="/user/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Đăng xuất</a></li>
+        {{ else }}
+        <li><a href="/user/signup"><i class="fa fa-sign-in" aria-hidden="true"></i> Đăng ký</a></li>
+        <li><a href="/user/signin"><i class="fa fa-user" aria-hidden="true"></i> Đăng nhập</a></li>
+
+        <li><a href="/auth/facebook"><i class="fa fa-user" aria-hidden="true"></i> Đăng nhập Facebook</a></li>
+        {{/if}}
+      </ul>
+      <a id="toc-actuator" class="toc-ac" style="opacity: 1;">Show Menu</a>
+    </nav>
+    

@@ -1,0 +1,32 @@
+  <div id="container">
+        <section id="content">
+            
+<div class="row">
+	<div class="col-md-4 col-md-offset-4 ">
+		<h1 style="font-size: 30px;" class="text-center">Đăng Nhập</h1>
+		{{#if hasError}}
+			<div class="alert alert-danger">
+				{{#each messages}}
+					{{this}}
+				{{/each}}
+			</div>
+		{{/if}}
+		<form action="/user/signin" method="post">
+			<div class="form-group">
+				<label for="email" style="font-size: 20px; margin-bottom: 20px;">Email</label>
+				<input type="text" id="email" name="email" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="password" style="font-size: 20px; margin-bottom: 20px;">Password</label>
+				<input type="password" id="password" name="password" class="form-control">
+			</div>
+			<input type="hidden" name="_csrf" value="{{csrfToken}}">
+			<div class="g-recaptcha" data-sitekey="6Lc_KxsUAAAAAIMkkgujU5qHdwdOFNgf77MNUe-2"></div><br>
+			<input type="submit" name="" value="ĐĂNG NHẬP" class="btn btn-primary text-center" style="width: 49%">
+			<a href="/" class="btn btn-danger text-center" style="width: 49%;float: right; color: #fff">VỀ TRANG CHỦ</a>
+		</form>
+	</div>
+	<!--ma hoa -->
+</div>
+</section>
+</div>

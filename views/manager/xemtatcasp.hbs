@@ -1,0 +1,65 @@
+
+{{#if hasError}} 
+<div class="alert alert-success" role="alert">
+<span style="font-size: 50px;" class="text-center">
+
+  {{#each messages}}
+          {{this}}<br>
+        {{/each}}
+
+</span>
+</div>
+{{/if}}
+<a href="/adds" style="font-size: 30px; line-height: 30px; color: #FF9900; float: left"><i class="fa fa-plus-circle" aria-hidden="true"></i>
+ Thêm sản phẩm</a>
+<a href="/" style="font-size: 30px; line-height: 30px; color: #FF9900; float: right;"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Quay về trang chủ</a>
+ <table class="table">
+    <thead>
+      <tr>
+        <th>Tên quán</th>
+      	<th>Mô tả</th>
+        <th>Địa điểm</th>
+        <th>Hình ảnh 1</th>
+        <th>Hình ảnh 2</th>
+        <th>Hình ảnh 3</th>
+        <th>Hình ảnh 4</th>
+        <th>Hình ảnh 5</th>
+        <th>Ngày tháng</th>
+        <th>Giá bán</th>
+        <th>Chức năng</th>
+      </tr>
+    </thead>
+    <tbody>
+    {{#each products}}
+      <tr>
+        <td >{{this.tenQuan}}</td>
+        <td >{{this.moTa}}</td>
+        <td ><p>{{this.diaDiem}}</p></td>
+        <td ><img src="/img/{{this.linkAnh1}}" width="100px" height="100px"></td>
+        <td ><img src="/img/{{this.linkAnh2}}" width="100px" height="100px"></td>
+        <td ><img src="/img/{{this.linkAnh3}}" width="100px" height="100px"></td>
+        <td ><img src="/img/{{this.linkAnh4}}" width="100px" height="100px"></td>
+        <td ><img src="/img/{{this.linkAnh5}}" width="100px" height="100px"></td>
+        <td >{{this.ngayThang}}</td>
+        <td >{{this.price}}</td>
+         <td>
+          <nav>
+            <ul  style="list-style: none">
+              
+              <li><a href="/edit/{{this._id}}" style="color: blue">EDIT</a></li>
+              <li><a href="#" onclick="if (confirm('Bạn muốn xoá à')) 
+                { 
+                  var id ='{{this._id}}';
+                  window.location.href = '/delete/'+id;
+                } 
+               event.returnValue = false; 
+               return false;" style="color: blue">Xoá</a></li>
+            </ul>
+          </nav></td>
+      </tr>
+     {{/each}}
+
+
+    </tbody>
+  </table>
+

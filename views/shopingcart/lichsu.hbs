@@ -1,0 +1,30 @@
+<a href="/xemgiohang" style="font-size: 30px; line-height: 30px; color: #FF9900; float: left;"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Quay về giỏ hàng</a>
+<a href="/" style="font-size: 30px; line-height: 30px; color: #FF9900; float: right;"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Quay về giỏ hàng</a>
+ <table class="table">
+    <thead>
+      <tr>
+        <th>Tên sản phẩm</th>
+      	<th>Giá cần trả (VND)</th>
+        <th>Số lượng</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+    {{#each products}}
+      <tr>
+        <td >{{this.name}}</td>
+        <td >{{this.price}}</td>
+        <td ><p>{{this.count}}</p></td>
+      </tr>
+     {{/each}}
+      
+
+    </tbody>
+  </table><br>
+  <div class="total" style="font-size: 20px">
+        <div class="pull-rigth">
+          <p style="color: red">So luong đã thanh toán: {{soluong}}</p><br>
+          <p style="color: red">Gia đã phai thanh toán: {{gia_tra}} VND</p>
+        </div>
+      </div>
+

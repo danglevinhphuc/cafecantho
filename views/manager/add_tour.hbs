@@ -1,0 +1,79 @@
+<h1 style="font-size: 50px;color: #FF9900;font-family: bold; " class="text-center">THÊM BÀI VIẾT</h1>
+<form action="/addss" method="POST"  enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="title" >Tên Quán</label><br>
+    <textarea name="tenQuan" id="tenQuan" rows="20"  style="" required></textarea>
+  </div>
+  <div class="form-group">
+    <label for="title" >Mô tả</label><br>
+    <textarea name="moTa" id="moTa" rows="20"  style="" required></textarea>
+  </div>
+  <div class="form-group">
+    <label for="description" style="">Địa điểm</label><br>
+    <textarea name="diaDiem" id="diaDiem" rows="20" cols="130" required></textarea>
+  </div>
+  <div class="form-group">
+    <label for="price" style="">Giá bán</label><br>
+    <input type="number" name="price"  style="width: 50% ;height: 5%; font-size: 20px;"> <span style="font-size: 20px">VND</span>
+  </div>
+  <div class="form-group">
+    <label for="price">Ngày tháng</label>
+    <input type="date" class="form-control" name="ngayThang" required>
+  </div>
+  <div class="form-group">
+    <label for="title">Hình 1</label>
+    <input type="file" class="form-control" name="linkAnh1[]" id="ImagePath1">
+    <img id='output1' width='300px' name='img_thuoc' height='300px' alt='hình sản phẩm' style="">
+  </div>
+   <div class="form-group">
+    <label for="title">Hình 2</label>
+    <input type="file" class="form-control" name="linkAnh1[]" id="ImagePath2">
+    <img id='output2' width='300px' name='img_thuoc' height='300px' alt='hình sản phẩm'>
+  </div>
+   <div class="form-group">
+    <label for="title">Hình 3</label>
+    <input type="file" class="form-control" name="linkAnh1[]" id="ImagePath3">
+    <img id='output3' width='300px' name='img_thuoc' height='300px' alt='hình sản phẩm'>
+  </div>
+   <div class="form-group">
+    <label for="title">Hình 4</label>
+    <input type="file" class="form-control" name="linkAnh1[]" id="ImagePath4">
+    <img id='output4' width='300px' name='img_thuoc' height='300px' alt='hình sản phẩm'>
+  </div>
+   <div class="form-group">
+    <label for="title">Hình 5</label>
+    <input type="file" class="form-control" name="linkAnh1[]" id="ImagePath5">
+    <img id='output5' width='300px' name='img_thuoc' height='300px' alt='hình sản phẩm'>
+  </div>
+  <input type="hidden" name="email" value="{{email}}">
+  <button type="submit" class="btn btn-primary" style="width: 100%">ADD</button>
+</form>
+
+<script type="text/javascript">
+    var openFile = function(event,name) {
+        var input = event.target;
+
+        var reader = new FileReader();
+        reader.onload = function(){
+            var dataURL = reader.result;
+            var output = document.getElementById(name);
+            output.src = dataURL;
+        };
+        reader.readAsDataURL(input.files[0]);
+    };
+    $("#ImagePath1").change(function(e){
+        openFile(event,'output1');
+    });
+    $("#ImagePath2").change(function(e){
+        openFile(event,'output2');
+    });
+    $("#ImagePath3").change(function(e){
+        openFile(event,'output3');
+    });
+    $("#ImagePath4").change(function(e){
+        openFile(event,'output4');
+    });
+    $("#ImagePath5").change(function(e){
+        openFile(event,'output5');
+    });
+</script>

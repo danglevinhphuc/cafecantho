@@ -1,0 +1,67 @@
+  
+  
+            {{#if hasError}}
+    <div class="alert alert-success" style="font-size: 20px">
+      {{# each messages}}
+      <p>{{this}}</p>
+      {{/each}}
+    </div>
+    {{/if}}
+<a href="/lichsu" style="font-size: 30px; line-height: 30px; color: #FF9900; float: left;"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Xem lịch sử giỏ hàng</a>
+<a href="/" style="font-size: 30px; line-height: 30px; color: #FF9900; float: right;"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Quay về trang chủ</a>
+ <table class="table">
+    <thead>
+      <tr>
+        <th>Tên sản phẩm</th>
+      	<th>Giá cần trả (VND)</th>
+        <th>Số lượng</th>
+        <th>Chức năng</th>
+      </tr>
+    </thead>
+    <tbody>
+    {{#each products}}
+      <tr>
+        <td >{{this.name}}</td>
+        <td >{{this.price}}</td>
+        <td ><p>{{this.count}}</p></td>
+         <td>
+          <nav>
+            <ul  style="list-style: none">
+              
+              <li><a href="#" onclick="if (confirm('Bạn muốn xoá à')) 
+                { 
+                  var id ='{{this._id}}';
+                  window.location.href = '/xoagiohang/'+id;
+                } 
+               event.returnValue = false; 
+               return false;" style="color: blue">Xoá</a></li>
+            </ul>
+          </nav></td>
+      </tr>
+     {{/each}}
+      
+
+    </tbody>
+  </table><br>
+  <div class="total" style="font-size: 20px">
+        <div class="pull-rigth">
+          <p style="color: red">So luong: {{soluong}}</p><br>
+          <p style="color: red">Gia can phai thanh toán: {{gia_tra}} VND</p>
+          <form action="/thanhtoan" method="POST">
+            <input type="hidden" name="email" value="{{email}}">
+            <input type="submit" name="thanhtoan" id="thanh_toan" value="THANH TOAN" class="btn btn-primary">
+          </form>
+        </div>
+      </div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#thanh_toan").click(function(){
+      if (confirm('Bạn muốn thanh toán à???')){
+        return true;
+      }else{
+        return false;
+      }
+    });
+  });
+</script>
